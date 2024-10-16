@@ -97,9 +97,9 @@ export function SubCategoryEdit({
                 </DialogTitle>
               </DialogHeader>
 
-              <Form onSubmit={onSubmit}>
-                <Label>大分類</Label>
+              <Form onSubmit={onSubmit} className="space-y-2">
                 <Select
+                  label="大分類"
                   isRequired
                   selectedKey={selectCagegory}
                   onSelectionChange={(selected) => setSelectCagegory(selected)}
@@ -124,7 +124,7 @@ export function SubCategoryEdit({
                   <Input type="number" name="sequence" required />
                 </TextField>
                 <Input type="hidden" name="id" value={id} />
-                <DialogFooter>
+                <DialogFooter className="mt-2">
                   <Button onPress={close} type="submit">
                     {action === "insert" ? "追加" : "更新"}
                   </Button>

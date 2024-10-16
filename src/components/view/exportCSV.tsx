@@ -1,53 +1,11 @@
-import { selectLogs, selectLogsTitle, selectLogsType } from "@/db/db"
-import { useSuspenseQuery } from "@tanstack/react-query"
 import * as Encoding from "encoding-japanese"
 import type { LogType } from "../types"
 import { Button } from "../ui/button"
-import CategoryList from "./categoryList"
-import LosgList from "./logsList"
-import SelectionView from "./selection"
-import SubCategoryList from "./subCategoryList"
-
-export function TypeLoader() {
-  const { data: categories } = useSuspenseQuery({
-    queryKey: ["categories"],
-    queryFn: selectLogsType,
-  })
-
-  const { data: subCategories } = useSuspenseQuery({
-    queryKey: ["subCategories"],
-    queryFn: selectLogsTitle,
-  })
-
-  const { data: logs } = useSuspenseQuery({
-    queryKey: ["logs"],
-    queryFn: selectLogs,
-  })
-
-  return (
-    <>
-      <div className="flex gap-2 ml-2 my-1">
-        <CategoryList categories={categories} />
-        <SubCategoryList
-          categories={categories}
-          subCategories={subCategories}
-        />
-        <ExportCSV logs={logs} />
-      </div>
-      <LosgList
-        categories={categories}
-        subCategories={subCategories}
-        logs={logs}
-      />
-      <SelectionView categories={categories} subCategories={subCategories} />
-    </>
-  )
-}
 
 async function* generateCSV(logs: LogType[]) {
   yield "ID,大分類,小分類,コメント,日付,日時\n"
   for (const log of logs) {
-    yield `${log.id}, ${log.category}, ${log.sub_category}, ${log.content}, ${log.date}, ${log.date_time}\n`
+    yield `${log.id},${log.category},${log.sub_category},${log.content},${log.date},${log.date_time}\n`
   }
 }
 
@@ -85,7 +43,7 @@ async function downloadCSV(logs: LogType[]) {
   URL.revokeObjectURL(url)
 }
 
-function ExportCSV({
+export default function ExportCSV({
   logs,
 }: {
   logs: LogType[]

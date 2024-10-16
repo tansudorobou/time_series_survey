@@ -1,11 +1,11 @@
 import { Suspense } from "react"
-import { TypeLoader } from "./components/view/loader"
+import { Loader } from "./components/loader"
 
 function App() {
   return (
     <div className="flex flex-col h-screen">
       <Suspense fallback={<div>Loading...</div>}>
-        <TypeLoader />
+        <Loader />
       </Suspense>
     </div>
   )

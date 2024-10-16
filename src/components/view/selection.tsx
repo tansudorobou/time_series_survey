@@ -32,9 +32,14 @@ export default function SelectionView({
       >
         +
       </Button>
-      <div className="grid grid-cols-2 gap-2">
+      <div
+        className={selections.length > 1 ? "grid grid-cols-2 gap-2" : "flex"}
+      >
         {selections.map((selection) => (
-          <div key={selection.id} className="flex w-4/5">
+          <div
+            key={selection.id}
+            className={selections.length > 1 ? "flex w-[90%]" : "flex w-full"}
+          >
             <Selection
               key={selection.id}
               categories={categories}

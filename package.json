@@ -28,6 +28,7 @@
     "react-aria-components": "^1.4.0",
     "react-dom": "^18.2.0",
     "react-stately": "^3.33.0",
+    "recharts": "^2.13.0",
     "tailwind-merge": "^2.5.3",
     "tailwindcss-animate": "^1.0.7",
     "uuidv7": "^1.0.2"

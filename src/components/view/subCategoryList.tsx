@@ -39,7 +39,7 @@ export default function SubCategoryList({
                   sequence={subCategories.length + 1}
                 />
               </div>
-              <div className="overflow-y-scroll max-h-96">
+              <div className="overflow-y-scroll h-96">
                 <table className="w-full">
                   <tbody>
                     {subCategories?.map((sub_category) => (
