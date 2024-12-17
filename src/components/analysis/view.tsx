@@ -3,9 +3,7 @@ import { Button } from "../ui/button"
 import {
   DialogContent,
   DialogFooter,
-  DialogHeader,
   DialogOverlay,
-  DialogTitle,
   DialogTrigger,
 } from "../ui/dialog"
 import { AnalysisList } from "./list"
@@ -13,7 +11,6 @@ import { AnalysisList } from "./list"
 export default function AnalysisView({
   logs,
   categories,
-  subCategories,
 }: {
   logs: LogType[]
   categories: CategoryType[]
@@ -26,11 +23,7 @@ export default function AnalysisView({
         <DialogContent className="sm:max-w-[425px]">
           {({ close }) => (
             <>
-              <AnalysisList
-                logs={logs}
-                categories={categories}
-                subCategories={subCategories}
-              />
+              <AnalysisList logs={logs} categories={categories} />
               <DialogFooter>
                 <Button variant="outline" onPress={close}>
                   閉じる

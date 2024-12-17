@@ -94,7 +94,7 @@ export function CategoryEdit({
                   <HexPicker color={color} setColor={setColor} />
 
                   <TextField name="sequence" defaultValue={sequence.toString()}>
-                    <Label>順序</Label>
+                    <Label>表示順</Label>
                     <Input type="number" />
                   </TextField>
                   <Input type="hidden" name="id" value={id} />

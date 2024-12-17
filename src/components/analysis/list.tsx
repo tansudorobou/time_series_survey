@@ -1,16 +1,14 @@
 import { useMemo, useState } from "react"
 import type { Key } from "react-aria-components"
-import type { CategoryType, LogType, SubCategoryType } from "../types"
+import type { CategoryType, LogType } from "../types"
 import { JollySelect as Select, SelectItem } from "../ui/select"
 
 export function AnalysisList({
   logs,
   categories,
-  subCategories,
 }: {
   logs: LogType[]
   categories: CategoryType[]
-  subCategories: SubCategoryType[]
 }) {
   const calcCategoryCount = (logs: LogType[]) => {
     return logs.reduce(
